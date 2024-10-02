@@ -1,0 +1,64 @@
+.welcome-page {
+  background-color: #f5f5f7;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'San Francisco', sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+img{
+  max-width: 250px;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+
+.signup-button {
+  background-color: #0a0a0a;
+  color: #fff;
+  border-radius: 25px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.signup-button:hover {
+  background-color: #373737;
+}
+
+.already-have-account {
+  font-size: 16px;
+  color: #999;
+}
+
+.login-button{
+  color: #666;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 0px;
+}
+
+.login-button:hover{
+  background: black;
+  color: white;
+  padding: 10px;
+  border-radius: 25px;
+}
