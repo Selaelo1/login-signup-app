@@ -1,0 +1,15 @@
+.confirmation-page {
+  background-color: #f5f5f7;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'San Francisco', sans-serif;
+  text-align: center;
+}
+
+.confirmation-page h1 {
+  font-weight: 600;
+  font-size: 36px;
+  margin-bottom: 10px;
+}
