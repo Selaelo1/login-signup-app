@@ -5,11 +5,40 @@
   justify-content: center;
   align-items: center;
   font-family: 'San Francisco', sans-serif;
+}
+
+.container {
   text-align: center;
 }
 
-.confirmation-page h1 {
+.logo4 {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+h1 {
   font-weight: 600;
   font-size: 36px;
   margin-bottom: 10px;
+}
+
+p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.login-button {
+  background-color: #0a0a0a;
+  color: #fff;
+  border-radius: 25px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.login-button:hover {
+  background-color: #373737;
 }
