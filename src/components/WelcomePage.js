@@ -22,10 +22,10 @@ function WelcomePage() {
       </p>
       <p>
         <Link to="/login" className="login" aria-label="Log in to BodyBliss">
-          Login 
+          Login!
           
         </Link>
-        <span className="no-underline">then!</span>
+
       </p>
     </div>
   );
