@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import { login } from '../api/client';
+import Logo3 from '../images/logo192.png';
+import './LoginPage.css';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -10,48 +12,49 @@ const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) return setError('Please fill all fields');
-
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:3000/api/login', {
-        email,
-        password,
-      });
-      const { token, user } = response.data;
-
-      localStorage.setItem('token', token);
-      localStorage.setItem('user', JSON.stringify(user));
-
-      window.location.href = '/dashboard';
+      const data = await login(email, password);
+      // Handle successful login (e.g., store token, redirect)
+      console.log(data);
     } catch (error) {
-      setError(error.response.data.message);
+      setError(error.message);
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button type="submit" disabled={isLoading}>
-          {isLoading ? 'Loading...' : 'Login'}
-        </button>
-      </form>
+    <div className="login-page">
+      <div className="container">
+        <img src={Logo3} className="logo3" />
+        <h1>Login</h1>
+        <p>Welcome back!</p>
+        {error && <div className="error">{error}</div>}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+            className="input-field"
+          />
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            className="input-field"
+          />
+          <button
+            type="submit"
+            disabled={isLoading}
+            className="login-button"
+          >
+            {isLoading ? 'Loading...' : 'Login'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
