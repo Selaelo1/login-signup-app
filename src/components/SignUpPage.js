@@ -1,12 +1,9 @@
 
 
 import React, { useState } from 'react';
-import axios from 'axios';
-import GoogleSignUp from './GoogleSignUp';
+import { signup } from '../api/client';
 import './SignUpPage.css';
-import Logo2 from '../images/logo192.png';
-
-axios.defaults.baseURL = 'http://localhost:3000';
+import Logo2 from '../images/logo192.png'
 
 const SignUpPage = () => {
   const [name, setName] = useState('');
@@ -30,13 +27,12 @@ const SignUpPage = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const response = await axios.post('http://localhost:3000/api/signup', {
+      const userData = {
         name,
         email,
         password,
-      })
-
-      const { data } = response;
+      };
+      const data = await signup(userData);
       console.log(data);
       window.location.href = '/api/confirmation';
     } catch (error) {
@@ -48,9 +44,9 @@ const SignUpPage = () => {
   return (
     <div className="signup-page">
       <div className="container">
-        <img src={Logo2} alt="BodyBliss Logo" className="logo2" />
+        <img src={Logo2} className='logo2'/>
         <h1>Sign Up</h1>
-        <p>Join the Body Bliss community today!</p>
+        <p>Join our community today!</p>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
@@ -91,14 +87,11 @@ const SignUpPage = () => {
             Sign Up
           </button>
         </form>
-        <GoogleSignUp />
       </div>
     </div>
   );
 };
 
 export default SignUpPage;
-
-
 
 
